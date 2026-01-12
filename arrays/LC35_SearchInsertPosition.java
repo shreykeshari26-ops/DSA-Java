@@ -37,5 +37,4 @@ class SearchInsertPosition {
         return nums.length;
     }
 
-
 }

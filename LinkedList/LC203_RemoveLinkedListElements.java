@@ -3,17 +3,6 @@ package LinkedList;
 /**
  * Definition for singly-linked list.
  */
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {}
-
-    ListNode(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
 
 /**
  * LeetCode 203 - Remove Linked List Elements
@@ -29,7 +18,7 @@ class ListNode {
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-class Solution {
+class lc203 {
     public ListNode removeElements(ListNode head, int val) {
 
         ListNode temp = head;

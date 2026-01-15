@@ -15,19 +15,9 @@ package LinkedList;
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-class ListNode {
-    int val;
-    ListNode next;
 
-    ListNode() {}
 
-    ListNode(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
-
-class Solution {
+class OddEven {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) return null;
 

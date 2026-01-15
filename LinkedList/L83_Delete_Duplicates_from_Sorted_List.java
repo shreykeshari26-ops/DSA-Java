@@ -2,19 +2,8 @@
 package LinkedList;
 
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {}
-
-    ListNode(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
 // LeetCode 83: Delete Duplicates from Sorted List
-class Solution {
+class DeleteDuplicates {
     public ListNode deleteDuplicates(ListNode head) {
 
         ListNode temp = head;

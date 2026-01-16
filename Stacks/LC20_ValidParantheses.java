@@ -21,7 +21,7 @@ Learning:
 - Stack helps validate ordered pairs.
 - Always check stack before peek/pop.
 */
-class Solution {
+class validParantheses {
     public boolean isValid(String s) {
         Stack <Character> st = new Stack<>();
         int n = s.length();

@@ -13,7 +13,7 @@ package String;
  * Space Complexity: O(n)
  */
 
-class Solution {
+class LC345isVowel {
 
     boolean isVowel(char ch) {
         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'

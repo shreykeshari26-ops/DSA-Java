@@ -8,7 +8,7 @@ This repository contains my Data Structures & Algorithms practice in Java.
 - Self practice
 
 ## Organization
-Problems are organized by topics such as arrays, strings, recursion, etc.
+Problems are organized by topics such as arrays, strings, recursion, stacks etc.
 
 Each solution includes:
 - Problem description

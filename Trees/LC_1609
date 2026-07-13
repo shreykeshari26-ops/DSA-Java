@@ -1,0 +1,67 @@
+class Solution {
+    public boolean isEvenOddTree(TreeNode root) {
+        boolean bt= true;
+       
+    
+        if(root==null) return true;
+
+        Queue<TreeNode> q =new LinkedList<>();
+
+        q.add(root);
+       int level=0;
+
+        while(!q.isEmpty()){
+            int size = q.size();
+            
+            int prev;
+
+            if (level % 2 == 0)
+                prev = Integer.MIN_VALUE;
+            else
+               prev = Integer.MAX_VALUE;
+
+            for(int i=0;i<size;i++){
+                TreeNode temp =q.remove();
+                //even 
+
+                if(level%2==0){  //level is not even 1st level starts from even
+                if(temp.val%2==0) return false;// when not odd return false
+                if(temp.val<=prev) return false; // whne its not in increasing order 
+                }
+
+
+                //odd
+                else{  //level is not even 1st level starts from even
+                if(temp.val%2!=0) return false;// when not odd return false
+                if(temp.val>=prev) return false; // whne its not in increasing order 
+                }
+
+
+
+             prev = temp.val;
+
+
+
+            
+             
+            
+
+
+
+            if(temp.left!=null){
+                q.add(temp.left);
+            }
+            if(temp.right!=null){
+                q.add(temp.right);
+            }
+
+            }
+            level++;
+
+
+        }
+        return true ;
+        
+    }
+
+}

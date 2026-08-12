@@ -1,0 +1,30 @@
+class Solution {
+    public void comb(int[] candidates, int target, int start, ArrayList<Integer> bl,  List<List<Integer>> ans ){
+          if(target<0) return;
+          if(target==0){
+            ans.add(new ArrayList<>(bl));
+            return;
+        }
+        for(int i=start; i<candidates.length;i++){
+           if (i > start && candidates[i] == candidates[i - 1]) continue;
+            if (candidates[i] > target)  // Since array is sorted, no need to continue further optimized
+                break;
+              
+            bl.add(candidates[i]);
+            
+            comb(candidates, target-candidates[i],i+1,bl,ans);
+
+            bl.remove(bl.size()-1);
+            
+        }
+    }
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        ArrayList<Integer> bl =new ArrayList<>();
+        Arrays.sort(candidates);
+        List<List<Integer>> ans = new ArrayList<>();
+        comb( candidates, target,0, bl, ans);
+
+        return ans;
+        
+    }
+}

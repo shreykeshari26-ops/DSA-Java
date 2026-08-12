@@ -1,0 +1,23 @@
+class Solution {
+    public void comb( int start , int n,int k, ArrayList<Integer> bl,  List<List<Integer>> ans){
+        if(bl.size()==k){
+             ans.add(new ArrayList<>(bl));
+            return;
+        }
+        for(int i=start; i<=n ;i++){
+            bl.add(i);
+         comb(i+1,n,k,bl,ans);
+         bl.remove(bl.size() - 1);
+        
+        }
+
+        
+    }
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> ans = new ArrayList<>();
+        ArrayList<Integer> bl= new ArrayList<>();
+       comb(1,n,k,bl,ans);
+       return ans;
+        
+    }
+}

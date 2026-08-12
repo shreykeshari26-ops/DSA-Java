@@ -1,0 +1,31 @@
+class Solution {
+
+    public void sub(int[] nums, int idx, List<Integer> bl, List<List<Integer>> ans) {
+
+        // Base Case
+        if (idx == nums.length) {
+            ans.add(new ArrayList<>(bl));   
+            return;
+        }
+
+        // Pick the current element
+        bl.add(nums[idx]);
+        sub(nums, idx + 1, bl, ans);
+
+        // Backtrack (Undo the pick)
+        bl.remove(bl.size() - 1);
+
+        // Not Pick the current element
+        sub(nums, idx + 1, bl, ans);
+    }
+
+    public List<List<Integer>> subsets(int[] nums) {
+
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> bl = new ArrayList<>();
+
+        sub(nums, 0, bl, ans);
+
+        return ans;
+    }
+}

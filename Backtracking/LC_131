@@ -1,0 +1,46 @@
+class Solution {
+    public boolean isPalindrome(String s, int left, int right) {
+
+    while (left < right) {
+
+        if (s.charAt(left) != s.charAt(right)) {
+            return false;
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+    public void pal(String s, int idx, List<List<String>> ans, ArrayList<String> bl  ){
+
+        if(idx==s.length()){
+            ans.add(new ArrayList<>(bl));
+            return;
+
+        }
+        for(int i=idx;i<s.length();i++){
+
+            if(isPalindrome(s,idx,i)){
+            bl.add(s.substring(idx, i + 1));
+ 
+            pal(s, i + 1, ans, bl);
+            bl.remove(bl.size() - 1);
+
+
+            }
+
+          
+
+        }
+    }
+    public List<List<String>> partition(String s) {
+      List<List<String>> ans = new ArrayList<>();
+      ArrayList<String> bl = new ArrayList<>();
+      pal(s, 0, ans, bl);
+      return ans;
+
+        
+    }
+}

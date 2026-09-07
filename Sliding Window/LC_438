@@ -1,0 +1,41 @@
+class Solution {
+     public boolean isAnagram(String a, String b) {
+
+        if (a.length() != b.length()) {
+            return false;
+        }
+
+        int[] freq = new int[26];
+
+        for (int i = 0; i < a.length(); i++) {
+            freq[a.charAt(i) - 'a']++;//ASCII values
+            freq[b.charAt(i) - 'a']--;
+        }
+
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public List<Integer> findAnagrams(String s, String p) {
+        int left=0;
+        int right=p.length();
+        ArrayList<Integer> list= new ArrayList<>();
+        while(right <= s.length()){
+            String window = s.substring(left, right);
+            if(isAnagram(window, p)){
+             list.add(left);
+            }
+
+            
+            left++;
+            right++;
+        }
+        return list;
+        
+    }
+}

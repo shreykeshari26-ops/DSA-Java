@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int[][] kClosest(int[][] points, int k) {
+
+        // Max heap: farthest point will be at the top
+        PriorityQueue<int[]> pq = new PriorityQueue<>(
+            (a, b) -> Integer.compare(
+                b[0] * b[0] + b[1] * b[1],
+                a[0] * a[0] + a[1] * a[1]
+            )
+        );
+
+        // Take every point from points
+        for (int[] point : points) {
+
+            // Add the point to heap
+            pq.add(point);
+
+            // Keep only k closest points
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        // Store answer
+        int[][] ans = new int[k][2];
+
+        // Take k points from heap
+        for (int i = 0; i < k; i++) {
+            ans[i] = pq.poll();
+        }
+
+        return ans;
+    }
+}
